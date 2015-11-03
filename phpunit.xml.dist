@@ -9,7 +9,7 @@
          processIsolation="false"
          stopOnFailure="false"
          syntaxCheck="true"
-         bootstrap="app/config/shared_public/tests/bootstrap/phpunit.php">
+         bootstrap="vendor/autoload.php">
     <testsuites>
         <testsuite name="Scribe Doctrine UUID Library Test Suite">
             <directory>./tests/</directory>

@@ -1,5 +1,5 @@
 {
-    "name"        : "scribe/arthur-doctrine-uuid",
+    "name"        : "scr-be/arthur-doctrine-uuid-library",
     "license"     : "MIT",
     "type"        : "library",
     "homepage"    : "https://scr.be/arthur-doctrine-uuid-library",
@@ -22,10 +22,11 @@
         }
     ],
     "require" : {
-        "php"                  : ">=5.6.4,~5.6|~7.0",
-        "scribe/wonka-library" : "~0.1",
-        "doctrine/orm"         : "~2.5",
-        "ramsey/uuid"          : "~3.0"
+        "php"                            : ">=5.6.4,~5.6|~7.0",
+        "scr-be/wonka-library"           : "~0.1@dev",
+        "scr-be/arthur-doctrine-library" : "~0.1@dev",
+        "doctrine/orm"                   : "~2.5",
+        "ramsey/uuid"                    : "~3.0"
     },
     "require-dev" : {
         "phpunit/phpunit"             : "~5.0",
@@ -38,18 +39,19 @@
     },
     "autoload" : {
         "psr-4" : {
-            "Scribe\\Doctrine\\" : "lib/"
+            "Scribe\\Doctrine\\ORM\\Id\\"     : "lib/ORM/Id/",
+            "Scribe\\Doctrine\\DBAL\\Types\\" : "lib/DBAL/Types/"
         }
     },
     "autoload-dev" : {
         "psr-4" : {
-            "Scribe\\Doctrine\\Tests\\" : "tests/"
+            "Scribe\\Doctrine\\Tests\\ORM\\Id\\"     : "tests/ORM/Id/",
+            "Scribe\\Doctrine\\Tests\\DBAL\\Types\\" : "tests/DBAL/Types/"
         }
     },
     "config": {
         "bin-dir"           : "bin",
-        "minimum-stability" : "dev",
-        "prefer-stable"     : true
+        "minimum-stability" : "dev"
     },
     "extra": {
         "branch-alias": {

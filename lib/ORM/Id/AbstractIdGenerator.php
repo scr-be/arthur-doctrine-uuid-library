@@ -15,9 +15,7 @@ use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Id\AbstractIdGenerator as BaseAbstractIdGenerator;
 
 /**
- * Class AbstractIdGenerator
- *
- * @package Scribe\Doctrine\ORM\Id
+ * Class AbstractIdGenerator.
  */
 abstract class AbstractIdGenerator extends BaseAbstractIdGenerator
 {

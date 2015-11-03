@@ -13,20 +13,19 @@ namespace Scribe\Doctrine\ORM\Id;
 
 use Doctrine\ORM\EntityManager;
 use Ramsey\Uuid\Exception\UnsatisfiedDependencyException;
-use Ramsey\Uuid\Exception\UnsupportedOperationException;
 use Ramsey\Uuid\Uuid;
-use Scribe\Wonka\Exception\RuntimeException;
+use Scribe\Doctrine\Exception\ORMException;
 
 /**
- * Class OptimisticBinaryUuidGenerator
- *
- * @package Scribe\Doctrine\ORM\Id
+ * Class OptimisticBinaryUuidGenerator.
  */
 class BinaryUuid4Generator extends AbstractPreInsertIdGenerator
 {
     /**
      * @param EntityManager $em
      * @param \Doctrine\ORM\Mapping\Entity $entity
+     *
+     * @throws ORMException
      *
      * @return string
      */
@@ -35,7 +34,7 @@ class BinaryUuid4Generator extends AbstractPreInsertIdGenerator
         try {
             return Uuid::uuid4()->getBytes();
         } catch (UnsatisfiedDependencyException $exception) {
-            throw new RuntimeException('UUID generator dependency unsatisfied: %s', null, null, $exception->getMessage());
+            throw new ORMException('UUID generator dependency unsatisfied: %s', null, null, $exception->getMessage());
         }
     }
 }

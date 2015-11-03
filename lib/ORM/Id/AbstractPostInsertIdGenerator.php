@@ -12,9 +12,7 @@
 namespace Scribe\Doctrine\ORM\Id;
 
 /**
- * Class AbstractPostInsertIdGenerator
- *
- * @package Scribe\Doctrine\ORM\Id
+ * Class AbstractPostInsertIdGenerator.
  */
 abstract class AbstractPostInsertIdGenerator extends AbstractIdGenerator
 {
