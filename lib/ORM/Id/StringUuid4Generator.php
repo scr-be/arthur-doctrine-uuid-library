@@ -12,13 +12,13 @@
 namespace Scribe\Doctrine\ORM\Id;
 
 use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\ORMException as BaseORMException;
+use Ramsey\Uuid\Uuid;
 use Scribe\Doctrine\Exception\ORMException;
 
 /**
- * Class BinaryUuid4PessimisticGenerator.
+ * Class StringUuid4Generator.
  */
-class BinaryUuid4PessimisticGenerator extends BinaryUuid4Generator
+class StringUuid4Generator extends AbstractPreInsertIdGenerator
 {
     /**
      * @param EntityManager                $em
@@ -30,17 +30,7 @@ class BinaryUuid4PessimisticGenerator extends BinaryUuid4Generator
      */
     public function generate(EntityManager $em, $entity)
     {
-        self::setMetadata($em, $entity);
-
-        try {
-            do {
-                $uuid = parent::generate($em, $entity);
-            } while ($em->find(self::$metadata->getName(), ['uuid', $uuid]));
-        } catch (BaseORMException $exception) {
-            throw new ORMException('Could not generate UUID: %s', null, null, $exception->getMessage());
-        }
-
-        return $uuid;
+        return Uuid::uuid4()->toString();
     }
 }
 

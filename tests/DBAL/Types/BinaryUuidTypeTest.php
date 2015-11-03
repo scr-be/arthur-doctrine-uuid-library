@@ -5,8 +5,9 @@ namespace Scribe\Doctrine\Tests\DBAL\Types;
 use Doctrine\DBAL\Types\Type;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Ramsey\Uuid\Uuid;
+use Scribe\Wonka\Utility\UnitTest\WonkaTestCase;
 
-class BinaryUuidTypeTest extends \PHPUnit_Framework_TestCase
+class BinaryUuidTypeTest extends WonkaTestCase
 {
     /**
      * @var AbstractPlatform
@@ -26,7 +27,9 @@ class BinaryUuidTypeTest extends \PHPUnit_Framework_TestCase
     }
     protected function setUp()
     {
-        $this->platform = $this->getMockForAbstractClass('Doctrine\DBAL\Platforms\AbstractPlatform', [], '', true, true);
+        $this->platform = $this->getMockBuilder('Doctrine\DBAL\Platforms\AbstractPlatform')
+            ->setMethods(array('getBinaryTypeDeclarationSQL'))
+            ->getMockForAbstractClass();
         $this->platform->expects($this->any())
             ->method('getBinaryTypeDeclarationSQL')
             ->will($this->returnValue('DUMMYBINARY(16)'));
@@ -45,6 +48,11 @@ class BinaryUuidTypeTest extends \PHPUnit_Framework_TestCase
     {
         $uuid = 'ff6f8cb0-c57d-11e1-9b21-0800200c9a66';
         $expected = hex2bin('ff6f8cb0c57d11e19b210800200c9a66');
+        $actual = $this->type->convertToDatabaseValue($uuid, $this->platform);
+        $this->assertEquals($expected, $actual);
+
+        $uuid = '524da6f5-4418-4df0-b752-5184671d22a3';
+        $expected = base64_decode('Uk2m9UQYTfC3UlGEZx0iow==');
         $actual = $this->type->convertToDatabaseValue($uuid, $this->platform);
         $this->assertEquals($expected, $actual);
     }
@@ -97,13 +105,6 @@ class BinaryUuidTypeTest extends \PHPUnit_Framework_TestCase
     public function testRequiresSQLCommentHint()
     {
         $this->assertTrue($this->type->requiresSQLCommentHint($this->platform));
-    }
-
-    private function getPlatformMock()
-    {
-        return $this->getMockBuilder('Doctrine\DBAL\Platforms\AbstractPlatform')
-            ->setMethods(array('getBinaryTypeDeclarationSQL'))
-            ->getMockForAbstractClass();
     }
 }
 

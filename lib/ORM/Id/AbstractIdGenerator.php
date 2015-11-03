@@ -22,15 +22,15 @@ abstract class AbstractIdGenerator extends BaseAbstractIdGenerator
     /**
      * @var \Doctrine\ORM\Mapping\ClassMetadata
      */
-    protected static $classMetadata;
+    protected static $metadata;
 
     /**
      * @param EntityManager                $em
      * @param \Doctrine\ORM\Mapping\Entity $entity
      */
-    protected static function setClassMetadata(EntityManager $em, $entity)
+    protected static function setMetadata(EntityManager $em, $entity)
     {
-        static::$classMetadata = $em->getClassMetadata(get_class($entity));
+        static::$metadata = $em->getClassMetadata(get_class($entity));
     }
 }
 

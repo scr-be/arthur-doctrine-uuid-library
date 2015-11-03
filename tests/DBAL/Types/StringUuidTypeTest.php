@@ -5,8 +5,9 @@ namespace Scribe\Doctrine\Tests\DBAL\Types;
 use Doctrine\DBAL\Types\Type;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Ramsey\Uuid\Uuid;
+use Scribe\Wonka\Utility\UnitTest\WonkaTestCase;
 
-class StringUuidTypeTest extends \PHPUnit_Framework_TestCase
+class StringUuidTypeTest extends WonkaTestCase
 {
     /**
      * @var AbstractPlatform
@@ -24,9 +25,12 @@ class StringUuidTypeTest extends \PHPUnit_Framework_TestCase
             Type::addType('str_uuid', 'Scribe\Doctrine\DBAL\Types\StringUuidType');
         }
     }
+
     protected function setUp()
     {
-        $this->platform = $this->getMockForAbstractClass('Doctrine\DBAL\Platforms\AbstractPlatform', [], '', true, true);
+        $this->platform = $this->getMockBuilder('Doctrine\DBAL\Platforms\AbstractPlatform')
+            ->setMethods(array('getGuidTypeDeclarationSQL'))
+            ->getMockForAbstractClass();
         $this->platform->expects($this->any())
             ->method('getGuidTypeDeclarationSQL')
             ->will($this->returnValue('DUMMYVARCHAR()'));
@@ -37,7 +41,7 @@ class StringUuidTypeTest extends \PHPUnit_Framework_TestCase
     public function testUuidConvertsToDatabaseValue()
     {
         $uuid = Uuid::fromString('ff6f8cb0-c57d-11e1-9b21-0800200c9a66');
-        $expected = $uuid->toString();
+        $expected = 'ff6f8cb0-c57d-11e1-9b21-0800200c9a66';
         $actual = $this->type->convertToDatabaseValue($uuid, $this->platform);
         $this->assertEquals($expected, $actual);
     }

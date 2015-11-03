@@ -16,9 +16,9 @@ use Doctrine\ORM\ORMException as BaseORMException;
 use Scribe\Doctrine\Exception\ORMException;
 
 /**
- * Class BinaryUuid4PessimisticGenerator.
+ * Class StringUuid4PessimisticGenerator.
  */
-class BinaryUuid4PessimisticGenerator extends BinaryUuid4Generator
+class StringUuid4PessimisticGenerator extends StringUuid4Generator
 {
     /**
      * @param EntityManager                $em
