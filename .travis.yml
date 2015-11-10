@@ -12,7 +12,7 @@ matrix:
         - php: 7.0
 
 before_install:
-    - git clone -b master https://github.com/scr-be/shared-build-knowledge.git config
+    - git clone -b master https://github.com/scr-be/build-knowledge-shared.git config
     - bash config/build/php/compile-mods/php_build-mod_igbinary.sh
     - bash config/build/php/runtime-conf/php_build-cfg_travis.sh
     - mkdir -p build/logs

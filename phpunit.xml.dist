@@ -11,7 +11,7 @@
          syntaxCheck="true"
          bootstrap="vendor/autoload.php">
     <testsuites>
-        <testsuite name="Scribe Doctrine UUID Library Test Suite">
+        <testsuite name="Scribe Arthur Doctrine UUID Library">
             <directory>./tests/</directory>
         </testsuite>
     </testsuites>
