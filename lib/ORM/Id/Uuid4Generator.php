@@ -12,21 +12,22 @@
 namespace Scribe\Doctrine\ORM\Id;
 
 use Doctrine\ORM\EntityManager;
+use Ramsey\Uuid\Uuid;
 
 /**
- * Class BinaryUuid4Generator.
+ * Class Uuid4Generator.
  */
-class BinaryUuid4Generator extends Uuid4Generator
+class Uuid4Generator extends AbstractPreInsertIdGenerator
 {
     /**
      * @param EntityManager                $em
      * @param \Doctrine\ORM\Mapping\Entity $entity
      *
-     * @return string
+     * @return Uuid
      */
     public function generate(EntityManager $em, $entity)
     {
-        return parent::generate($em, $entity)->getBytes();
+        return Uuid::uuid4();
     }
 }
 

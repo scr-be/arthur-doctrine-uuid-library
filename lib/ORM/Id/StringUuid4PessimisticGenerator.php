@@ -12,35 +12,33 @@
 namespace Scribe\Doctrine\ORM\Id;
 
 use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\ORMException as BaseORMException;
-use Scribe\Doctrine\Exception\ORMException;
+use Ramsey\Uuid\Uuid;
 
 /**
  * Class StringUuid4PessimisticGenerator.
  */
-class StringUuid4PessimisticGenerator extends StringUuid4Generator
+class StringUuid4PessimisticGenerator extends Uuid4PessimisticGenerator
 {
     /**
      * @param EntityManager                $em
      * @param \Doctrine\ORM\Mapping\Entity $entity
      *
-     * @throws ORMException
-     *
      * @return string
      */
     public function generate(EntityManager $em, $entity)
     {
-        self::setMetadata($em, $entity);
+        return parent::generate($em, $entity)->toString();
+    }
 
-        try {
-            do {
-                $uuid = parent::generate($em, $entity);
-            } while ($em->find(self::$metadata->getName(), ['uuid', $uuid]));
-        } catch (BaseORMException $exception) {
-            throw new ORMException('Could not generate UUID: %s', null, null, $exception->getMessage());
-        }
-
-        return $uuid;
+    /**
+     * @param EntityManager $em
+     * @param Uuid          $uuid
+     *
+     * @return bool
+     */
+    protected function findMatchingRow(EntityManager $em, Uuid $uuid)
+    {
+        return $em->find(self::$metadata->getName(), ['uuid' => $uuid->toString()]);
     }
 }
 

@@ -12,25 +12,21 @@
 namespace Scribe\Doctrine\ORM\Id;
 
 use Doctrine\ORM\EntityManager;
-use Ramsey\Uuid\Uuid;
-use Scribe\Doctrine\Exception\ORMException;
 
 /**
  * Class StringUuid4Generator.
  */
-class StringUuid4Generator extends AbstractPreInsertIdGenerator
+class StringUuid4Generator extends Uuid4Generator
 {
     /**
      * @param EntityManager                $em
      * @param \Doctrine\ORM\Mapping\Entity $entity
      *
-     * @throws ORMException
-     *
      * @return string
      */
     public function generate(EntityManager $em, $entity)
     {
-        return Uuid::uuid4()->toString();
+        return parent::generate($em, $entity)->toString();
     }
 }
 
