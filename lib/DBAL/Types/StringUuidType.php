@@ -49,7 +49,7 @@ class StringUuidType extends Type
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {
         if (empty($value)) {
-            return null;
+            return;
         }
 
         if ($value instanceof Uuid) {
@@ -76,7 +76,7 @@ class StringUuidType extends Type
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {
         if (empty($value)) {
-            return null;
+            return;
         }
 
         if ($value instanceof Uuid || Uuid::isValid($value)) {

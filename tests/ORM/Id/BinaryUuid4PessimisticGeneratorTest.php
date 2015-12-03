@@ -15,7 +15,6 @@ use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Mapping\ClassMetadata;
 use Doctrine\ORM\Mapping\Entity;
 use Ramsey\Uuid\Uuid;
-use Scribe\Doctrine\Exception\ORMException;
 use Scribe\Doctrine\ORM\Id\BinaryUuid4PessimisticGenerator;
 use Scribe\Wonka\Utility\UnitTest\WonkaTestCase;
 

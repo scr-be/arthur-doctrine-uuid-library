@@ -41,7 +41,7 @@ class BinaryUuid4GeneratorTest extends WonkaTestCase
             ->getMock();
         $this->em->expects($this->any())
             ->method('getClassMetadata')
-            ->will($this->returnValue((object)['name' => 'Scribe\Doctrine\ORM\Id\BinaryUuid4Generator']));
+            ->will($this->returnValue((object) ['name' => 'Scribe\Doctrine\ORM\Id\BinaryUuid4Generator']));
     }
 
     public function testUuidConvertsToDatabaseValue()

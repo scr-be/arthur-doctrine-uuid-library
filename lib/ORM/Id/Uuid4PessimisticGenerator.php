@@ -34,12 +34,9 @@ abstract class Uuid4PessimisticGenerator extends Uuid4Generator
         self::setMetadata($em, $entity);
 
         try {
-
             do {
                 $uuid = parent::generate($em, $entity);
-            }
-            while ($this->findMatchingRow($em, $uuid));
-
+            } while ($this->findMatchingRow($em, $uuid));
         } catch (DoctrineORMException $exception) {
             throw new ORMException('Could not generate UUID: %s', null, null, $exception->getMessage());
         }
