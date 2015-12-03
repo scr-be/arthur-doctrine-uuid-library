@@ -1,7 +1,7 @@
 # Scribe: Arthur Doctrine UUID Library
 
 [![Travis](https://scr.be/arthur-doctrine-uuid-library/travis_shield)](https://scr.be/arthur-doctrine-uuid-library/travis)
-[![Scrutinizer](https://scr.be/arthur-doctrine-uuid-library/scrutinizer_shield)](https://scr.be/arthur-doctrine-uuid-library/scrutinizer)
+[![Codacy](https://scr.be/arthur-doctrine-uuid-library/codacy_shield)](https://scr.be/arthur-doctrine-uuid-library/codacy)
 [![Coveralls](https://scr.be/arthur-doctrine-uuid-library/coveralls_shield)](https://scr.be/arthur-doctrine-uuid-library/coveralls)
 [![Gemnasium](https://scr.be/arthur-doctrine-uuid-library/gemnasium_shield)](https://scr.be/arthur-doctrine-uuid-library/gemnasium)
 
