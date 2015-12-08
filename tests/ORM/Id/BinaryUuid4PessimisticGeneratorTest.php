@@ -71,9 +71,8 @@ class BinaryUuid4PessimisticGeneratorTest extends WonkaTestCase
     {
         $g = new BinaryUuid4PessimisticGenerator();
         $uuid = $g->generate($this->em, $this->entity);
-        $string = Uuid::fromBytes($uuid)->toString();
 
-        $this->assertTrue(Uuid::isValid($string));
+        $this->assertTrue(Uuid::isValid($uuid));
     }
 
     public function testIsPreInsertGenerator()

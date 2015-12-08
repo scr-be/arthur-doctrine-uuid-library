@@ -18,16 +18,6 @@ use Doctrine\ORM\EntityManager;
  */
 class StringUuid4Generator extends Uuid4Generator
 {
-    /**
-     * @param EntityManager                $em
-     * @param \Doctrine\ORM\Mapping\Entity $entity
-     *
-     * @return string
-     */
-    public function generate(EntityManager $em, $entity)
-    {
-        return parent::generate($em, $entity)->toString();
-    }
 }
 
 /* EOF */

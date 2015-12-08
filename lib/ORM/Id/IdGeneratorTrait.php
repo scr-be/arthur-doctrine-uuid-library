@@ -12,12 +12,11 @@
 namespace Scribe\Doctrine\ORM\Id;
 
 use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\Id\AbstractIdGenerator as BaseAbstractIdGenerator;
 
 /**
- * Class AbstractIdGenerator.
+ * Trait IdGeneratorTrait.
  */
-abstract class AbstractIdGenerator extends BaseAbstractIdGenerator
+trait IdGeneratorTrait
 {
     /**
      * @var \Doctrine\ORM\Mapping\ClassMetadata

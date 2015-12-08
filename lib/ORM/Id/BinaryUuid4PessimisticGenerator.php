@@ -20,17 +20,6 @@ use Ramsey\Uuid\Uuid;
 class BinaryUuid4PessimisticGenerator extends Uuid4PessimisticGenerator
 {
     /**
-     * @param EntityManager                $em
-     * @param \Doctrine\ORM\Mapping\Entity $entity
-     *
-     * @return string
-     */
-    public function generate(EntityManager $em, $entity)
-    {
-        return parent::generate($em, $entity)->getBytes();
-    }
-
-    /**
      * @param EntityManager $em
      * @param Uuid          $uuid
      *

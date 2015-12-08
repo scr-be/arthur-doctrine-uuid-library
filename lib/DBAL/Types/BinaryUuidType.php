@@ -59,6 +59,10 @@ class BinaryUuidType extends Type
             return $value;
         }
 
+        if (Uuid::isValid($value)) {
+            return Uuid::fromString($value);
+        }
+
         try {
             return Uuid::fromBytes($value);
         } catch (\InvalidArgumentException $exception) {

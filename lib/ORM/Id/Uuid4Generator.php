@@ -12,13 +12,17 @@
 namespace Scribe\Doctrine\ORM\Id;
 
 use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\Id\AbstractIdGenerator;
 use Ramsey\Uuid\Uuid;
 
 /**
  * Class Uuid4Generator.
  */
-class Uuid4Generator extends AbstractPreInsertIdGenerator
+abstract class Uuid4Generator extends AbstractIdGenerator
 {
+    use IdGeneratorTrait;
+    use IdGeneratorPreInsertTrait;
+
     /**
      * @param EntityManager                $em
      * @param \Doctrine\ORM\Mapping\Entity $entity

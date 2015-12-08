@@ -73,6 +73,9 @@ class BinaryUuidTypeTest extends WonkaTestCase
         $uuid = $this->type->convertToPHPValue(hex2bin('ff6f8cb0c57d11e19b210800200c9a66'), $this->platform);
         $this->assertInstanceOf('Ramsey\Uuid\Uuid', $uuid);
         $this->assertEquals('ff6f8cb0-c57d-11e1-9b21-0800200c9a66', $uuid->toString());
+
+        $uuid = $this->type->convertToPHPValue('ff6f8cb0-c57d-11e1-9b21-0800200c9a66', $this->platform);
+        $this->assertEquals('ff6f8cb0-c57d-11e1-9b21-0800200c9a66', Uuid::fromString('ff6f8cb0-c57d-11e1-9b21-0800200c9a66')->toString());
     }
 
     public function testInvalidUuidConversionForPHPValue()

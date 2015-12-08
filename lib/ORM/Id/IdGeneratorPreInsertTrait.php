@@ -12,9 +12,9 @@
 namespace Scribe\Doctrine\ORM\Id;
 
 /**
- * Class AbstractPreInsertIdGenerator.
+ * Trait IdGeneratorPreInsertTrait.
  */
-abstract class AbstractPreInsertIdGenerator extends AbstractIdGenerator
+trait IdGeneratorPreInsertTrait
 {
     /**
      * @return bool
