@@ -11,8 +11,6 @@
 
 namespace Scribe\Doctrine\ORM\Id;
 
-use Doctrine\ORM\EntityManager;
-
 /**
  * Class StringUuid4Generator.
  */
