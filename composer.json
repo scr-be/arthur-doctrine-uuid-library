@@ -3,7 +3,7 @@
     "license"     : "MIT",
     "type"        : "library",
     "homepage"    : "https://scr.be/arthur-doctrine-uuid-library",
-    "description" : "project provides a string and binary Doctrine UUID type implementation, as well as complementary generator strategies.",
+    "description" : "A string and binary UUID-4 Doctrine ORM-type implementation as well as complimentary ORM-generator strategy implementations.",
     "support" : {
         "email"  : "rmf@scr.be",
         "issues" : "https://scr.be/arthur-doctrine-uuid-library/issues",
@@ -31,8 +31,7 @@
     "require-dev" : {
         "phpunit/phpunit"        : "~5.0",
         "codacy/coverage"        : "~1.0",
-        "satooshi/php-coveralls" : "~0.7",
-        "symfony/config"         : "~2.8"
+        "satooshi/php-coveralls" : "~1.0"
     },
     "suggest" : {
         "ramsey/uuid-console": "A Symfony console application for generating UUIDs with ramsey/uuid."

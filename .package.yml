@@ -11,3 +11,5 @@ php_exts : igbinary
 app_prep : dep-composer
 app_post : ~
 app_path : ~
+pkg_name : arthur-doctrine-uuid-library
+pkg_desc : "provides string and binary UUID-4 Doctrine ORM-type definitions as well as complimentary ORM-generator strategy implementations."
