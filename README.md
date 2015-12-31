@@ -8,7 +8,7 @@
 
 [Welcome](https://scr.be/go/readme_welcome)!
 The `scr-be/arthur-doctrine-uuid-library` package provides
-a string and binary UUID-4 Doctrine ORM-type implementation as well as complimentary ORM-generator strategy implementations.
+provides string and binary UUID-4 Doctrine ORM-type definitions as well as complimentary ORM-generator strategy implementations.
 
 ### Grouping
 
