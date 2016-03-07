@@ -14,7 +14,7 @@ namespace Scribe\Doctrine\ORM\Id;
 /**
  * Class BinaryUuid4Generator.
  */
-class BinaryUuid4Generator extends Uuid4Generator
+class BinaryUuid4Generator extends AbstractUuid4Generator
 {
 }
 

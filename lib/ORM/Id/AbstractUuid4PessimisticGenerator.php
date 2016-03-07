@@ -17,9 +17,9 @@ use Ramsey\Uuid\Uuid;
 use Scribe\Doctrine\Exception\ORMException;
 
 /**
- * Class Uuid4PessimisticGenerator.
+ * Class AbstractUuid4PessimisticGenerator.
  */
-abstract class Uuid4PessimisticGenerator extends Uuid4Generator
+abstract class AbstractUuid4PessimisticGenerator extends AbstractUuid4Generator
 {
     /**
      * @param EntityManager                $em

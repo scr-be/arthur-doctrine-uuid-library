@@ -17,7 +17,7 @@ use Ramsey\Uuid\Uuid;
 /**
  * Class StringUuid4PessimisticGenerator.
  */
-class StringUuid4PessimisticGenerator extends Uuid4PessimisticGenerator
+class StringUuid4PessimisticGenerator extends AbstractUuid4PessimisticGenerator
 {
     /**
      * @param EntityManager $em

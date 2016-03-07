@@ -17,7 +17,7 @@ use Ramsey\Uuid\Uuid;
 /**
  * Class BinaryUuid4PessimisticGenerator.
  */
-class BinaryUuid4PessimisticGenerator extends Uuid4PessimisticGenerator
+class BinaryUuid4PessimisticGenerator extends AbstractUuid4PessimisticGenerator
 {
     /**
      * @param EntityManager $em

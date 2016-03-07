@@ -12,7 +12,6 @@
 namespace Scribe\Doctrine\DBAL\Types;
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
-use Doctrine\DBAL\Types\ConversionException;
 use Doctrine\DBAL\Types\Type;
 use Ramsey\Uuid\Uuid;
 
@@ -49,7 +48,7 @@ class StringUuidType extends Type
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {
         if (empty($value)) {
-            return;
+            return null;
         }
 
         if ($value instanceof Uuid) {
@@ -76,7 +75,7 @@ class StringUuidType extends Type
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {
         if (empty($value)) {
-            return;
+            return null;
         }
 
         if ($value instanceof Uuid || Uuid::isValid($value)) {

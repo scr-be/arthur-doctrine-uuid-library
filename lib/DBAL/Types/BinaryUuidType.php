@@ -52,7 +52,7 @@ class BinaryUuidType extends Type
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {
         if (empty($value)) {
-            return;
+            return null;
         }
 
         if ($value instanceof Uuid) {
@@ -83,7 +83,7 @@ class BinaryUuidType extends Type
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {
         if (empty($value)) {
-            return;
+            return null;
         }
 
         if ($value instanceof Uuid) {

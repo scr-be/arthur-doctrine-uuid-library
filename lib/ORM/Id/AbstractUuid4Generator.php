@@ -16,9 +16,9 @@ use Doctrine\ORM\Id\AbstractIdGenerator;
 use Ramsey\Uuid\Uuid;
 
 /**
- * Class Uuid4Generator.
+ * Class AbstractUuid4Generator.
  */
-abstract class Uuid4Generator extends AbstractIdGenerator
+abstract class AbstractUuid4Generator extends AbstractIdGenerator
 {
     use IdGeneratorTrait;
     use IdGeneratorPreInsertTrait;

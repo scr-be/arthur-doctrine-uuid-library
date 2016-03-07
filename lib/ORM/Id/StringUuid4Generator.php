@@ -14,7 +14,7 @@ namespace Scribe\Doctrine\ORM\Id;
 /**
  * Class StringUuid4Generator.
  */
-class StringUuid4Generator extends Uuid4Generator
+class StringUuid4Generator extends AbstractUuid4Generator
 {
 }
 
