@@ -1,30 +1,30 @@
 {
-    "name"        : "scr-be/arthur-doctrine-uuid-library",
+    "name"        : "src-run/arthur-doctrine-uuid-library",
     "license"     : "MIT",
     "type"        : "library",
-    "homepage"    : "https://scr.be/arthur-doctrine-uuid-library",
+    "homepage"    : "https://get.src.run/arthur-doctrine-uuid-library",
     "description" : "A string and binary UUID-4 Doctrine ORM-type implementation as well as complimentary ORM-generator strategy implementations.",
     "support" : {
-        "email"  : "rmf@scr.be",
-        "issues" : "https://scr.be/arthur-doctrine-uuid-library/issues",
-        "source" : "https://scr.be/arthur-doctrine-uuid-library/git",
+        "email"  : "rmf@src.run",
+        "issues" : "https://get.src.run/arthur-doctrine-uuid-library/issues",
+        "source" : "https://get.src.run/arthur-doctrine-uuid-library/git",
         "irc"    : "irc://irc.efnet.org/scribe"
     },
     "keywords"   : [
-        "arthur-doctrine-uuid-library", "scribe-arthur-doctrine-uuid-library", "library", "scr.be", "scribe", "scribenet", "scribe-software", "scribe-systems"
+        "arthur-doctrine-uuid-library", "scribe-arthur-doctrine-uuid-library", "library", "get.src.run", "scribe", "scribenet", "scribe-software", "scribe-systems"
     ],
     "authors"    : [
         {
             "name"    : "Rob Frawley 2nd",
-            "email"   : "rmf@scr.be",
-            "homepage": "https://scr.be/rmf",
+            "email"   : "rmf@src.run",
+            "homepage": "https://get.src.run/rmf",
             "role"    : "Project Lead"
         }
     ],
     "require" : {
-        "php"                            : "~5.6|~7.0",
-        "scr-be/arthur-doctrine-library" : "~0.5",
-        "ramsey/uuid"                    : "~3.0"
+        "php"                             : "~5.6|~7.0",
+        "src-run/arthur-doctrine-library" : "~0.5",
+        "ramsey/uuid"                     : "~3.0"
     },
     "require-dev" : {
         "phpunit/phpunit"        : "~5.0",
@@ -36,14 +36,14 @@
     },
     "autoload" : {
         "psr-4" : {
-            "Scribe\\Doctrine\\ORM\\Id\\"     : "lib/ORM/Id/",
-            "Scribe\\Doctrine\\DBAL\\Types\\" : "lib/DBAL/Types/"
+            "SR\\Doctrine\\ORM\\Id\\"     : "lib/ORM/Id/",
+            "SR\\Doctrine\\DBAL\\Types\\" : "lib/DBAL/Types/"
         }
     },
     "autoload-dev" : {
         "psr-4" : {
-            "Scribe\\Doctrine\\Tests\\ORM\\Id\\"     : "tests/ORM/Id/",
-            "Scribe\\Doctrine\\Tests\\DBAL\\Types\\" : "tests/DBAL/Types/"
+            "SR\\Doctrine\\Tests\\ORM\\Id\\"     : "tests/ORM/Id/",
+            "SR\\Doctrine\\Tests\\DBAL\\Types\\" : "tests/DBAL/Types/"
         }
     },
     "minimum-stability" : "dev",
