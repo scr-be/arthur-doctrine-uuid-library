@@ -1,9 +1,9 @@
 <?php
 
-namespace Scribe\Doctrine\Tests\DBAL\Types;
+namespace SR\Doctrine\Tests\DBAL\Types;
 
-use Scribe\Doctrine\DBAL\Types\ConversionException;
-use Scribe\Wonka\Utility\UnitTest\WonkaTestCase;
+use SR\Doctrine\DBAL\Types\ConversionException;
+use SR\Wonka\Utility\UnitTest\WonkaTestCase;
 
 class ConversionExceptionTest extends WonkaTestCase
 {

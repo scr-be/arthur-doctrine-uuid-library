@@ -1,19 +1,20 @@
 <?php
 
 /*
- * This file is part of the Arthur Doctrine Library.
+ * This file is part of the `src-run/arthur-doctrine-uuid-library` project.
  *
- * (c) Scribe Inc. <oss@scr.be>
+ * (c) Rob Frawley 2nd <rmf@src.run>
+ * (c) Scribe Inc      <scr@src.run>
  *
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
 
-namespace Scribe\Doctrine\DBAL\Types;
+namespace SR\Doctrine\DBAL\Types;
 
 use Doctrine\DBAL\Types\ConversionException as BaseConversionException;
-use Scribe\Doctrine\Exception\ORMExceptionInterface;
-use Scribe\Wonka\Exception\ExceptionTrait;
+use SR\Doctrine\Exception\ORMExceptionInterface;
+use SR\Wonka\Exception\ExceptionTrait;
 
 /**
  * Class ConversionException.

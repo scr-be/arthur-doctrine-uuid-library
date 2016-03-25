@@ -1,11 +1,11 @@
 <?php
 
-namespace Scribe\Doctrine\Tests\DBAL\Types;
+namespace SR\Doctrine\Tests\DBAL\Types;
 
 use Doctrine\DBAL\Types\Type;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Ramsey\Uuid\Uuid;
-use Scribe\Wonka\Utility\UnitTest\WonkaTestCase;
+use SR\Wonka\Utility\UnitTest\WonkaTestCase;
 
 class StringUuidTypeTest extends WonkaTestCase
 {
@@ -22,7 +22,7 @@ class StringUuidTypeTest extends WonkaTestCase
     public static function setUpBeforeClass()
     {
         if (class_exists('Doctrine\\DBAL\\Types\\Type')) {
-            Type::addType('str_uuid', 'Scribe\Doctrine\DBAL\Types\StringUuidType');
+            Type::addType('str_uuid', 'SR\Doctrine\DBAL\Types\StringUuidType');
         }
     }
 

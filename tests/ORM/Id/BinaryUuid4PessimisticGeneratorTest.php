@@ -1,22 +1,23 @@
 <?php
 
 /*
- * This file is part of the Scribe Doctrine UUID Library.
+ * This file is part of the `src-run/arthur-doctrine-uuid-library` project.
  *
- * (c) Scribe Inc. <oss@scr.be>
+ * (c) Rob Frawley 2nd <rmf@src.run>
+ * (c) Scribe Inc      <scr@src.run>
  *
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
 
-namespace Scribe\Doctrine\Test\ORM\Id;
+namespace SR\Doctrine\Test\ORM\Id;
 
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Mapping\ClassMetadata;
 use Doctrine\ORM\Mapping\Entity;
 use Ramsey\Uuid\Uuid;
-use Scribe\Doctrine\ORM\Id\BinaryUuid4PessimisticGenerator;
-use Scribe\Wonka\Utility\UnitTest\WonkaTestCase;
+use SR\Doctrine\ORM\Id\BinaryUuid4PessimisticGenerator;
+use SR\Wonka\Utility\UnitTest\WonkaTestCase;
 
 /**
  * Class BinaryUuid4PessimisticGeneratorTest.
@@ -48,7 +49,7 @@ class BinaryUuid4PessimisticGeneratorTest extends WonkaTestCase
         $this->meta
             ->expects($this->any())
             ->method('getName')
-            ->will($this->returnValue('Scribe\Doctrine\ORM\Id\BinaryUuid4Generator'));
+            ->will($this->returnValue('SR\Doctrine\ORM\Id\BinaryUuid4Generator'));
         $this->em = $this
             ->getMockBuilder('Doctrine\ORM\EntityManager')
             ->disableOriginalConstructor()
@@ -63,7 +64,7 @@ class BinaryUuid4PessimisticGeneratorTest extends WonkaTestCase
             ->method('find')
             ->will($this->returnValue(null));
         $this->entity = $this
-            ->getMockBuilder('Scribe\Doctrine\ORM\Mapping\Entity')
+            ->getMockBuilder('SR\Doctrine\ORM\Mapping\Entity')
             ->getMock();
     }
 
@@ -87,7 +88,7 @@ class BinaryUuid4PessimisticGeneratorTest extends WonkaTestCase
             ->expects($this->any())
             ->method('find')
             ->will($this->throwException(new \Doctrine\ORM\ORMException()));
-        $this->setExpectedException('Scribe\Doctrine\Exception\ORMException');
+        $this->setExpectedException('SR\Doctrine\Exception\ORMException');
         $g = new BinaryUuid4PessimisticGenerator();
         $g->generate($this->em, $this->entity);
     }
