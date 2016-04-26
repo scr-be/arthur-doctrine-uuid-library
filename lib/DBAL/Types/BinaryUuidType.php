@@ -13,9 +13,9 @@
 namespace SR\Doctrine\DBAL\Types;
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
-use Doctrine\DBAL\Types\ConversionException;
 use Doctrine\DBAL\Types\Type;
 use Ramsey\Uuid\Uuid;
+use SR\Doctrine\Exception\Type\OrmTypeConversionException;
 
 class BinaryUuidType extends Type
 {
@@ -67,7 +67,8 @@ class BinaryUuidType extends Type
         try {
             return Uuid::fromBytes($value);
         } catch (\InvalidArgumentException $exception) {
-            throw ConversionException::conversionFailed($value, self::NAME);
+            throw OrmTypeConversionException::create()
+                ->with($value, self::NAME);
         }
     }
 
@@ -98,7 +99,8 @@ class BinaryUuidType extends Type
         try {
             return Uuid::fromBytes($value)->getBytes();
         } catch (\InvalidArgumentException $exception) {
-            throw ConversionException::conversionFailed($value, self::NAME);
+            throw OrmTypeConversionException::create()
+                ->with($value, self::NAME);
         }
     }
 

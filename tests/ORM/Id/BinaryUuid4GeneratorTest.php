@@ -16,12 +16,11 @@ use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Mapping\Entity;
 use Ramsey\Uuid\Uuid;
 use SR\Doctrine\ORM\Id\BinaryUuid4Generator;
-use SR\Wonka\Utility\UnitTest\WonkaTestCase;
 
 /**
  * Class BinaryUuid4GeneratorTest.
  */
-class BinaryUuid4GeneratorTest extends WonkaTestCase
+class BinaryUuid4GeneratorTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @var EntityManager

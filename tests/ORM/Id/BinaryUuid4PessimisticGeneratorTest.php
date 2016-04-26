@@ -17,12 +17,11 @@ use Doctrine\ORM\Mapping\ClassMetadata;
 use Doctrine\ORM\Mapping\Entity;
 use Ramsey\Uuid\Uuid;
 use SR\Doctrine\ORM\Id\BinaryUuid4PessimisticGenerator;
-use SR\Wonka\Utility\UnitTest\WonkaTestCase;
 
 /**
  * Class BinaryUuid4PessimisticGeneratorTest.
  */
-class BinaryUuid4PessimisticGeneratorTest extends WonkaTestCase
+class BinaryUuid4PessimisticGeneratorTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @var EntityManager

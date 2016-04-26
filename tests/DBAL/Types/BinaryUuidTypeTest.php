@@ -5,9 +5,8 @@ namespace SR\Doctrine\Tests\DBAL\Types;
 use Doctrine\DBAL\Types\Type;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Ramsey\Uuid\Uuid;
-use SR\Wonka\Utility\UnitTest\WonkaTestCase;
 
-class BinaryUuidTypeTest extends WonkaTestCase
+class BinaryUuidTypeTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @var AbstractPlatform
@@ -59,7 +58,7 @@ class BinaryUuidTypeTest extends WonkaTestCase
 
     public function testInvalidUuidConversionForDatabaseValue()
     {
-        $this->setExpectedException('Doctrine\DBAL\Types\ConversionException');
+        $this->setExpectedException('SR\Doctrine\Exception\Type\OrmTypeConversionException');
         $this->type->convertToDatabaseValue('abcdefg', $this->platform);
     }
 
@@ -80,7 +79,7 @@ class BinaryUuidTypeTest extends WonkaTestCase
 
     public function testInvalidUuidConversionForPHPValue()
     {
-        $this->setExpectedException('Doctrine\DBAL\Types\ConversionException');
+        $this->setExpectedException('SR\Doctrine\Exception\Type\OrmTypeConversionException');
         $this->type->convertToPHPValue('abcdefg', $this->platform);
     }
 

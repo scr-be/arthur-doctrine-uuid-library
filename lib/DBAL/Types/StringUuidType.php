@@ -15,6 +15,7 @@ namespace SR\Doctrine\DBAL\Types;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\Type;
 use Ramsey\Uuid\Uuid;
+use SR\Doctrine\Exception\Type\OrmTypeConversionException;
 
 class StringUuidType extends Type
 {
@@ -59,7 +60,8 @@ class StringUuidType extends Type
         try {
             return Uuid::fromString($value);
         } catch (\InvalidArgumentException $exception) {
-            throw ConversionException::conversionFailed($value, self::NAME);
+            throw OrmTypeConversionException::create()
+                ->with($value, self::NAME);
         }
     }
 
@@ -83,7 +85,8 @@ class StringUuidType extends Type
             return (string) $value;
         }
 
-        throw ConversionException::conversionFailed($value, self::NAME);
+        throw OrmTypeConversionException::create()
+            ->with($value, self::NAME);
     }
 
     /**

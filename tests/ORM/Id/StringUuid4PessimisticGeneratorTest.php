@@ -18,12 +18,11 @@ use Doctrine\ORM\Mapping\Entity;
 use Ramsey\Uuid\Uuid;
 use SR\Doctrine\ORM\Id\StringUuid4Generator;
 use SR\Doctrine\ORM\Id\StringUuid4PessimisticGenerator;
-use SR\Wonka\Utility\UnitTest\WonkaTestCase;
 
 /**
  * Class StringUuid4PessimisticGeneratorTest.
  */
-class StringUuid4PessimisticGeneratorTest extends WonkaTestCase
+class StringUuid4PessimisticGeneratorTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @var EntityManager

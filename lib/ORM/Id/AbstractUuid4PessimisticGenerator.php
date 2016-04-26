@@ -15,7 +15,7 @@ namespace SR\Doctrine\ORM\Id;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\ORMException as DoctrineORMException;
 use Ramsey\Uuid\Uuid;
-use SR\Doctrine\Exception\ORMException;
+use SR\Doctrine\Exception\Type\OrmTypeGeneratorException;
 
 /**
  * Class AbstractUuid4PessimisticGenerator.
@@ -26,7 +26,7 @@ abstract class AbstractUuid4PessimisticGenerator extends AbstractUuid4Generator
      * @param EntityManager                $em
      * @param \Doctrine\ORM\Mapping\Entity $entity
      *
-     * @throws ORMException
+     * @throws OrmException
      *
      * @return Uuid
      */
@@ -39,7 +39,8 @@ abstract class AbstractUuid4PessimisticGenerator extends AbstractUuid4Generator
                 $uuid = parent::generate($em, $entity);
             } while ($this->findMatchingRow($em, $uuid));
         } catch (DoctrineORMException $exception) {
-            throw new ORMException('Could not generate UUID: %s', null, null, $exception->getMessage());
+            throw OrmTypeGeneratorException::create()
+                ->with('UUID', $exception->getMessage());
         }
 
         return $uuid;
