@@ -4,7 +4,6 @@
  * This file is part of the `src-run/arthur-doctrine-uuid-library` project.
  *
  * (c) Rob Frawley 2nd <rmf@src.run>
- * (c) Scribe Inc      <scr@src.run>
  *
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
@@ -43,7 +42,7 @@ class StringUuidType extends Type
      * @param mixed            $value
      * @param AbstractPlatform $platform
      *
-     * @throws ConversionException
+     * @throws OrmTypeConversionException
      *
      * @return mixed|null|\Ramsey\Uuid\UuidInterface
      */
@@ -60,8 +59,7 @@ class StringUuidType extends Type
         try {
             return Uuid::fromString($value);
         } catch (\InvalidArgumentException $exception) {
-            throw OrmTypeConversionException::create()
-                ->with($value, self::NAME);
+            throw new OrmTypeConversionException('Unable to convert "%s" PHP value in "%s"', $value, self::NAME);
         }
     }
 
@@ -71,7 +69,7 @@ class StringUuidType extends Type
      * @param mixed            $value
      * @param AbstractPlatform $platform
      *
-     * @throws ConversionException
+     * @throws OrmTypeConversionException
      *
      * @return null|string
      */
@@ -85,8 +83,7 @@ class StringUuidType extends Type
             return (string) $value;
         }
 
-        throw OrmTypeConversionException::create()
-            ->with($value, self::NAME);
+        throw new OrmTypeConversionException('Unable to convert "%s" database value in "%s"', $value, self::NAME);
     }
 
     /**

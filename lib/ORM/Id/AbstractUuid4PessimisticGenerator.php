@@ -4,7 +4,6 @@
  * This file is part of the `src-run/arthur-doctrine-uuid-library` project.
  *
  * (c) Rob Frawley 2nd <rmf@src.run>
- * (c) Scribe Inc      <scr@src.run>
  *
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
@@ -14,12 +13,10 @@ namespace SR\Doctrine\ORM\Id;
 
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\ORMException as DoctrineORMException;
-use Ramsey\Uuid\Uuid;
+use Ramsey\Uuid\UuidInterface;
+use SR\Doctrine\Exception\OrmException;
 use SR\Doctrine\Exception\Type\OrmTypeGeneratorException;
 
-/**
- * Class AbstractUuid4PessimisticGenerator.
- */
 abstract class AbstractUuid4PessimisticGenerator extends AbstractUuid4Generator
 {
     /**
@@ -28,7 +25,7 @@ abstract class AbstractUuid4PessimisticGenerator extends AbstractUuid4Generator
      *
      * @throws OrmException
      *
-     * @return Uuid
+     * @return UuidInterface
      */
     public function generate(EntityManager $em, $entity)
     {
@@ -39,8 +36,7 @@ abstract class AbstractUuid4PessimisticGenerator extends AbstractUuid4Generator
                 $uuid = parent::generate($em, $entity);
             } while ($this->findMatchingRow($em, $uuid));
         } catch (DoctrineORMException $exception) {
-            throw OrmTypeGeneratorException::create()
-                ->with('UUID', $exception->getMessage());
+            throw new OrmTypeGeneratorException('Unable to generate UUID', $exception);
         }
 
         return $uuid;
@@ -48,11 +44,11 @@ abstract class AbstractUuid4PessimisticGenerator extends AbstractUuid4Generator
 
     /**
      * @param EntityManager $em
-     * @param Uuid          $uuid
+     * @param UuidInterface $uuid
      *
      * @return bool
      */
-    abstract protected function findMatchingRow(EntityManager $em, Uuid $uuid);
+    abstract protected function findMatchingRow(EntityManager $em, UuidInterface $uuid);
 }
 
 /* EOF */
